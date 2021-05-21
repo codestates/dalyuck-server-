@@ -62,40 +62,40 @@ export class TodoController {
 
   }
 
-  // // Todo를 수정한다.
-  // @Put()
-  // async userTodoUpdate(
-  //   // Client의 Body에서 온 정보를 각각 변수로
-  //   // 저장
-  //   @Headers() headers,
-  //   @Body() completeBody: {
-  //     userId : number,
-  //     startTime : string,
-  //     toDoName : string,
-  //     description : string,
-  //     todoId : number
-  //   }
+  // Todo를 수정한다.
+  @Put()
+  async userTodoUpdate(
+    // Client의 Body에서 온 정보를 각각 변수로
+    // 저장
+    @Headers() headers,
+    @Body() completeBody: {
+      userId : number,
+      startTime : string,
+      toDoName : string,
+      description : string,
+      todoId : number
+    }
 
-  // ) {
-  //     console.log("startTime : ", completeBody.startTime)
-
-
-  //     const userTodo = await this.todoService.updateTodo(
-  //       headers,
-  //       completeBody.userId,
-  //       completeBody.todoId,
-  //       completeBody.startTime,
-  //       completeBody.toDoName,
-  //       completeBody.description
-  //     );
+  ) {
+      console.log("startTime : ", completeBody.startTime)
 
 
-  //     return {
-  //       Todo : userTodo
-  //     }
-  //     // return userData;
+      const userTodo = await this.todoService.updateTodo(
+        headers,
+        completeBody.userId,
+        completeBody.todoId,
+        completeBody.startTime,
+        completeBody.toDoName,
+        completeBody.description
+      );
 
-  // }
+
+      return {
+        Todo : userTodo
+      }
+      // return userData;
+
+  }
 
   // // TodoList를 삭제한다.
   // @Delete()
