@@ -8,7 +8,7 @@ import {
     } from 'typeorm';
 
 import { User } from "../user/user.entity";
-// import { Todo } from "../todo/todo.entity";
+import { Todo } from "../todo/todo.entity";
 
 @Entity()
 export class TodoList extends BaseEntity {
@@ -30,9 +30,9 @@ export class TodoList extends BaseEntity {
   })
   user : User;
 
-  // @OneToMany(type => Todo, todo => todo.todolist, {
-  //   eager: true,
-  //   cascade: true
-  //  })
-  // todo: Todo[];
+  @OneToMany(type => Todo, todo => todo.todolist, {
+    eager: true,
+    cascade: true
+   })
+  todo: Todo[];
 }
