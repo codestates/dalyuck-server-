@@ -35,28 +35,29 @@ export class TodoListRepository extends Repository<TodoList> {
 
   }
 
-  // // TodoList를 수정한다.
-  // async updateTodoList(
-  //   userId : number,
-  //   toDoListId : number,
-  //   colour : string,
-  //   toDoListName : string 
-  // ){
+  // TodoList를 수정한다.
+  async updateTodoList(
+    userId : number,
+    toDoListId : number,
+    colour : string,
+    toDoListName : string 
+  ){
 
-  //   const todoList = await this.findOne({ id: toDoListId});
-  //   todoList.colour = colour.length !== 0 ? colour: todoList.colour;
-  //   todoList.toDoListName = toDoListName.length !== 0 ? toDoListName : todoList.toDoListName;
+    const todoList = await this.findOne({ id: toDoListId});
+    todoList.colour = colour.length !== 0 ? colour: todoList.colour;
+    todoList.toDoListName = toDoListName.length !== 0 ? toDoListName : todoList.toDoListName;
 
-  //   try{
-  //     await todoList.save();
-  //   }
+    try{
+      await todoList.save();
+      return todoList;
+    }
 
-  //   catch(error){
-  //     throw new InternalServerErrorException(error.message);
-  //   }
+    catch(error){
+      throw new InternalServerErrorException(error.message);
+    }
 
 
-  // }
+  }
 
   // // TodoList를 삭제한다.
   // async deleteTodoList(

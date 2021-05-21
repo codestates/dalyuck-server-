@@ -57,35 +57,35 @@ export class TodoListController {
 
   }
 
-  // // TodoList를 등록한다.
-  // @Put()
-  // async userTodoListUpdate(
-  //   // Client의 Body에서 온 정보를 각각 변수로
-  //   // 저장
-  //   @Headers() headers,
-  //   @Body() completeBody: {
-  //     userId : number,
-  //     toDoListId : number,
-  //     colour : string,
-  //     toDoListName : string
-  //   }
+  // TodoList를 수정한다.
+  @Put()
+  async userTodoListUpdate(
+    // Client의 Body에서 온 정보를 각각 변수로
+    // 저장
+    @Headers() headers,
+    @Body() completeBody: {
+      userId : number,
+      toDoListId : number,
+      colour : string,
+      toDoListName : string
+    }
 
-  // ) {
+  ) {
 
-  //       const userTodoList = await this.todolistService.updateTodoList(
-  //         headers,
-  //         completeBody.userId,
-  //         completeBody.toDoListId,
-  //         completeBody.colour,
-  //         completeBody.toDoListName
-  //       );
+        const userTodoList = await this.todolistService.updateTodoList(
+          headers,
+          completeBody.userId,
+          completeBody.toDoListId,
+          completeBody.colour,
+          completeBody.toDoListName
+        );
 
-  //       console.log("8- userData Pass");
+        return {
+          "TodoList" : userTodoList
+        }
+        // return userData;
 
-  //       return userTodoList
-  //       // return userData;
-
-  // }
+  }
 
   // // TodoList를 삭제한다.
   // @Delete()
