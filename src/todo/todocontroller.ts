@@ -97,47 +97,47 @@ export class TodoController {
 
   }
 
-  // // TodoList를 삭제한다.
-  // @Delete()
-  // async userTodoListDelete(
-  //   // Client의 Body에서 온 정보를 각각 변수로
-  //   // 저장
-  //   @Headers() headers,
-  //   @Body() completeBody: {
-  //     userId : number,
-  //     toDoListId : number,
-  //   },
-  //   @Res() res : Response
+  // Todo를 삭제한다.
+  @Delete()
+  async userTodoListDelete(
+    // Client의 Body에서 온 정보를 각각 변수로
+    // 저장
+    @Headers() headers,
+    @Body() completeBody: {
+      userId : number,
+      todoId : number,
+    },
+    @Res() res : Response
 
-  // ) {
+  ) {
 
-  //     const userTodoList = await this.todolistService.deleteTodoList(
-  //       headers,
-  //       completeBody.userId,
-  //       completeBody.toDoListId
-  //     );
+      const userTodo = await this.todoService.deleteTodo(
+        headers,
+        completeBody.userId,
+        completeBody.todoId
+      );
 
-  //     if(userTodoList.error){
+      if(userTodo.error){
         
-  //       res.status(userTodoList.error);
-  //       res.send({
-  //         "statusCode" : userTodoList.error,
-  //         "message" : userTodoList.message
-  //       })
+        res.status(userTodo.error);
+        res.send({
+          "statusCode" : userTodo.error,
+          "message" : userTodo.message
+        })
         
-  //     }
+      }
 
-  //     else if(!userTodoList.error){
+      else if(!userTodo.error){
 
-  //       res.status(userTodoList.status);
-  //       res.send({
-  //         "statusCode" : userTodoList.status,
-  //         "message" : userTodoList.message
-  //       })
+        res.status(userTodo.status);
+        res.send({
+          "statusCode" : userTodo.status,
+          "message" : userTodo.message
+        })
 
-  //     }
+      }
 
 
-  // }
+  }
   
 }
