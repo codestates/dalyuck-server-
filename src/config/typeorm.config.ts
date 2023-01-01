@@ -1,7 +1,6 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-require('dotenv').config()
+require('dotenv').config();
 
-export const typeOrmConfig:any = {
+export const typeOrmConfig: any = {
   type: process.env.DATABASE_TYPE,
   host: process.env.DATABASE_HOST,
   port: process.env.DATABASE_PORT,
@@ -9,8 +8,10 @@ export const typeOrmConfig:any = {
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE,
   autoLoadEntities: true,
-  synchronize: true
+  synchronize: true,
 };
+
+console.log('typeOrmConfig : ', typeOrmConfig);
 
 // export const typeOrmConfig: TypeOrmModuleOptions = {
 // type: 'mysql',
